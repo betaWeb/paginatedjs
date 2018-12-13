@@ -1,5 +1,10 @@
 class Pagination {
 
+    /**
+     * @param {Array} list
+     * @param {Number} perPage
+     * @param {Number} offset
+     */
     constructor(list = [], perPage = 10, offset = 0) {
         this.list = list
         this.perPage = perPage
@@ -8,30 +13,53 @@ class Pagination {
         this._page_number = 1
     }
 
+    /**
+     * @returns {Number}
+     */
     count() {
         return this._list.length
     }
 
+    /**
+     * @returns {boolean}
+     */
     hasMore() {
         return this._page_number < this.nbPages
     }
 
+    /**
+     * @returns {Pagination}
+     */
     prevPage() {
         return this.goToPage(this._page_number -= 1)
     }
 
+    /**
+     * @returns {Pagination}
+     */
     nextPage() {
         return this.goToPage(this._page_number += 1)
     }
 
+    /**
+     * @returns {Pagination}
+     */
     firstPage() {
         return this.goToPage(1)
     }
 
+    /**
+     * @returns {Pagination}
+     */
     lastPage() {
         return this.goToPage(this.nbPages)
     }
 
+    /**
+     * Get paginated part of array
+     *
+     * @returns {Array}
+     */
     getPaginated() {
         if (this._offset >= this.count())
             return this._list
@@ -39,6 +67,10 @@ class Pagination {
         return this._list.slice(this._offset, this._offset + this._perPage)
     }
 
+    /**
+     * @param {Number|String} page_number
+     * @returns {Pagination}
+     */
     goToPage(page_number) {
         if (!page_number)
             throw new Error('[Err] Pagination.goToPage - page_number argument must be defined')
@@ -61,6 +93,12 @@ class Pagination {
         return this
     }
 
+    /**
+     * Returns a chunked array or page indexed object of the list
+     *
+     * @param indexed_by_page
+     * @returns {Object|Array}
+     */
     chunkList(indexed_by_page = false) {
         let chunk_list = null;
 
@@ -86,26 +124,45 @@ class Pagination {
         return chunk_list
     }
 
+    /**
+     * @returns {Number}
+     */
     get pageNumber() {
         return this._page_number
     }
 
+    /**
+     * @returns {Number}
+     */
     get nbPages() {
         return Math.ceil(this.count() / this._perPage)
     }
 
+    /**
+     * @returns {Array}
+     */
     get list() {
         return this._list
     }
 
+    /**
+     * @returns {Number}
+     */
     get perPage() {
         return this._perPage
     }
 
+    /**
+     * @returns {Number}
+     */
     get offset() {
         return this._offset
     }
 
+    /**
+     * @param {Array} list
+     * @returns {Pagination}
+     */
     set list(list) {
         if (!Array.isArray(list))
             throw new Error('[Err] Pagination.constructor - list argument must be a valid JavaScript Array')
@@ -114,6 +171,10 @@ class Pagination {
         return this
     }
 
+    /**
+     * @param {Number} perPage
+     * @returns {Pagination}
+     */
     set perPage(perPage) {
         if (perPage.constructor !== Number && perPage.constructor !== String && isNaN(perPage))
             throw new Error('[Err] Pagination.perPage property setter - perPage argument must be a number')
@@ -125,6 +186,11 @@ class Pagination {
         return this
     }
 
+    /**
+     *
+     * @param {Number} offset
+     * @returns {Pagination}
+     */
     set offset(offset) {
         if (offset.constructor !== Number && offset.constructor !== String && isNaN(offset))
             throw new Error('[Err] Pagination.offset property setter - offset argument must be a number')
