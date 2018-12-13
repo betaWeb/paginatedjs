@@ -1,0 +1,23 @@
+{
+  "name": "paginatejs",
+  "version": "1.0.0",
+  "description": "A simple JS class to paginate arrays",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "javascript",
+    "pagination",
+    "simple",
+    "array"
+  ],
+  "author": "Cyprien G. <betaweb34@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
