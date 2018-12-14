@@ -7,22 +7,25 @@ test('Test expects to have 5 pages', () => {
 });
 
 test('Test returns the right number of results', () => {
-    expect(this.pagination.getPaginated().length).toEqual(3)
+    expect(this.pagination.getPaginated().count()).toEqual(3)
 });
 
 test('Test returns the right chunk of results', () => {
     this.pagination.goToPage(2)
-    expect(this.pagination.getPaginated()).toEqual(expect.arrayContaining([4, 5, 6]))
+    expect(this.pagination.getPaginated(true)).toEqual(expect.arrayContaining([4, 5, 6]))
+    expect(this.pagination.getPaginated().first()).toEqual(4)
 });
 
 test('Test get first page', () => {
     this.pagination.firstPage()
-    expect(this.pagination.getPaginated()).toEqual(expect.arrayContaining([1, 2, 3]))
+    expect(this.pagination.getPaginated(true)).toEqual(expect.arrayContaining([1, 2, 3]))
+    expect(this.pagination.getPaginated().last()).toEqual(3)
 });
 
 test('Test get last page', () => {
     this.pagination.lastPage()
-    expect(this.pagination.getPaginated()).toEqual(expect.arrayContaining([13]))
+    expect(this.pagination.getPaginated(true)).toEqual(expect.arrayContaining([13]))
+    expect(this.pagination.getPaginated().contains(13)).toEqual(true)
 });
 
 test('Test get prev page', () => {
@@ -30,7 +33,8 @@ test('Test get prev page', () => {
         .goToPage(4)
         .prevPage()
 
-    expect(this.pagination.getPaginated()).toEqual(expect.arrayContaining([7, 8, 9]))
+    expect(this.pagination.getPaginated(true)).toEqual(expect.arrayContaining([7, 8, 9]))
+    expect(this.pagination.getPaginated().nth(1)).toEqual(8)
 });
 
 test('Test get next page', () => {
@@ -38,7 +42,8 @@ test('Test get next page', () => {
         .goToPage(3)
         .nextPage()
 
-    expect(this.pagination.getPaginated()).toEqual(expect.arrayContaining([10, 11, 12]))
+    expect(this.pagination.getPaginated(true)).toEqual(expect.arrayContaining([10, 11, 12]))
+    expect(this.pagination.getPaginated().nth(3)).toEqual(null)
 });
 
 test('Test get page number from current position', () => {
@@ -58,16 +63,16 @@ test('Test get page number from beginning', () => {
 
 test('Test get page that not exists', () => {
     this.pagination.goToPage(7)
-    expect(this.pagination.getPaginated()).toEqual(expect.arrayContaining([13]))
+    expect(this.pagination.getPaginated(true)).toEqual(expect.arrayContaining([13]))
 });
 
 test('Test reset pagination', () => {
-    expect(this.pagination.reset().getPaginated()).toEqual(expect.arrayContaining([1,2,3]))
-    expect(this.pagination.nextPage().getPaginated()).toEqual(expect.arrayContaining([4,5,6]))
+    expect(this.pagination.reset().getPaginated(true)).toEqual(expect.arrayContaining([1,2,3]))
+    expect(this.pagination.nextPage().getPaginated(true)).toEqual(expect.arrayContaining([4,5,6]))
 });
 
 test('Test get chunked list of array', () => {
-    expect(this.pagination.chunkList().length).toEqual(5)
+    expect(this.pagination.chunkList().count()).toEqual(5)
 });
 
 test('Test get chunked list of array with keys', () => {
@@ -76,7 +81,7 @@ test('Test get chunked list of array with keys', () => {
 
 test('Test get pagination with perPage larger than array length', () => {
     this.pagination.perPage = 20
-    expect(this.pagination.getPaginated().length).toEqual(this.pagination.count())
+    expect(this.pagination.getPaginated().count()).toEqual(this.pagination.count())
 });
 
 test('Test expect count list to have 13 entries', () => {
