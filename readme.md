@@ -60,7 +60,7 @@ let chunked_list = pagination.chunkList(true)
 
 ### Pagination class
 
-#### Properties
+#### Properties (`{Return type} Class.property`)
 
 Get the current page number
 ```JS
@@ -89,7 +89,7 @@ Get the number of entries per page
 ```
 <br><br>
 
-#### Methods
+#### Methods (`{Return type} Class.method(<(optional) arg | type>, [<(optional) arg | type>])`)
 
 Get list length
 ```JS
@@ -136,7 +136,7 @@ Set pagination to the last page
 Returns chunked list compared to pagination position
 Returns Chunk class instance if to_array argument is false, array otherwise
 ```JS
-{Chunk|Array} Pagination.getPaginated(<to_array | Boolean>)
+{Chunk|Array} Pagination.getPaginated(<(optional) to_array | Boolean>)
 ```
 
 <br>
@@ -157,14 +157,14 @@ Reset pagination
 
 Returns a chunked array or page indexed object of the list
 ```JS
-{Array|Object} Pagination.chunkList(<indexed_by_page | Boolean>)
+{Array|Object} Pagination.chunkList(<(optional) indexed_by_page | Boolean>, <(optional) to_array | Boolean>)
 ```
 
 <br><br>
 
 ### Chunk class
 
-#### Methods
+#### Methods (`{Return type} Class.method(<arg | type>, [<arg | type>])`)
 
 Get count length
 ```JS
