@@ -61,6 +61,11 @@ test('Test get page that not exists', () => {
     expect(this.pagination.getPaginated()).toEqual(expect.arrayContaining([13]))
 });
 
+test('Test reset pagination', () => {
+    expect(this.pagination.reset().getPaginated()).toEqual(expect.arrayContaining([1,2,3]))
+    expect(this.pagination.nextPage().getPaginated()).toEqual(expect.arrayContaining([4,5,6]))
+});
+
 test('Test get chunked list of array', () => {
     expect(this.pagination.chunkList().length).toEqual(5)
 });
@@ -72,6 +77,10 @@ test('Test get chunked list of array with keys', () => {
 test('Test get pagination with perPage larger than array length', () => {
     this.pagination.perPage = 20
     expect(this.pagination.getPaginated().length).toEqual(this.pagination.count())
+});
+
+test('Test expect count list to have 13 entries', () => {
+    expect(this.pagination.count()).toEqual(13)
 });
 
 afterAll(() => this.pagination = null);

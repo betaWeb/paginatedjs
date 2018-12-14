@@ -93,6 +93,18 @@ class Pagination {
     }
 
     /**
+     * Reset pagination
+     *
+     * @returns {Pagination}
+     */
+    reset() {
+        this._offset = 0
+        this._page_number = 1
+
+        return this
+    }
+
+    /**
      * Returns a chunked array or page indexed object of the list
      *
      * @param indexed_by_page
