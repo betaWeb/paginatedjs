@@ -69,8 +69,8 @@ test('Test get chunked list of array with keys', () => {
     expect(Object.keys(this.pagination.chunkList(true))).toEqual(expect.arrayContaining(['1','2','3','4','5']))
 });
 
-test('Test get pagination with offset larger than array length', () => {
-    this.pagination.offset = 20
+test('Test get pagination with perPage larger than array length', () => {
+    this.pagination.perPage = 20
     expect(this.pagination.getPaginated().length).toEqual(this.pagination.count())
 });
 

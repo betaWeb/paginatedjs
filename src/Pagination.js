@@ -60,7 +60,7 @@ class Pagination {
      * @returns {Array}
      */
     getPaginated() {
-        if (this._offset >= this.count())
+        if (this._perPage >= this.count())
             return this._list
 
         return this._list.slice(this._offset, this._offset + this._perPage)
