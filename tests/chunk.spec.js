@@ -34,4 +34,11 @@ test('Test toArray method', () => {
     expect(this.chunk.toArray()).toEqual(expect.arrayContaining([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]))
 });
 
+test('Test paginate method', () => {
+    const Pagination = require('../src/Pagination')
+    const pagination = this.chunk.paginate(2)
+    expect(pagination.constructor).toEqual(Pagination)
+    expect(pagination.nbPages).toEqual(7)
+});
+
 afterAll(() => this.chunk = null);

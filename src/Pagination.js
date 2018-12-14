@@ -63,15 +63,11 @@ class Pagination {
      * @returns {Chunk|Array}
      */
     getPaginated(to_array = false) {
-        let list = []
-        if (this._perPage >= this.count())
-            list = this._list
-        else
-            list = this._list.slice(this._offset, this._offset + this._perPage)
+        let list = this._perPage >= this.count()
+            ? this._list
+            : this._list.slice(this._offset, this._offset + this._perPage)
 
-        return to_array
-            ? list
-            : new Chunk(list)
+        return to_array ? list : new Chunk(list)
     }
 
     /**
@@ -120,28 +116,19 @@ class Pagination {
      * @returns {Object|Chunk|Array}
      */
     chunkList(indexed_by_page = false, to_array = false) {
-        let chunk_list = null
+        let chunk_list = {}
 
-        if (indexed_by_page) {
-            chunk_list = {}
+        this.firstPage()
+        chunk_list[this.pageNumber] = this.getPaginated(to_array)
 
-            this.firstPage()
+        while (this.hasMore()) {
+            this.nextPage()
             chunk_list[this.pageNumber] = this.getPaginated(to_array)
+        }
 
-            while(this.hasMore()) {
-                this.nextPage()
-                chunk_list[this.pageNumber] = this.getPaginated(to_array)
-            }
-        } else {
-            chunk_list = []
-
-            chunk_list.push(this.firstPage().getPaginated(to_array))
-
-            while(this.hasMore())
-                chunk_list.push(this.nextPage().getPaginated(to_array))
-
-            if (!to_array)
-                chunk_list = new Chunk(chunk_list)
+        if (!indexed_by_page) {
+            chunk_list = Object.values(chunk_list)
+            return to_array ? chunk_list : new Chunk(chunk_list)
         }
 
         return chunk_list

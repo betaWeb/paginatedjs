@@ -29,7 +29,7 @@ class Chunk {
     }
 
     contains(value) {
-        return this._chunk.indexOf(value) >= 0
+        return this._chunk.includes(value)
     }
 
     toArray() {
