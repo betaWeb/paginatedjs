@@ -3,13 +3,12 @@ class Pagination {
     /**
      * @param {Array} list
      * @param {Number} perPage
-     * @param {Number} offset
      */
-    constructor(list = [], perPage = 10, offset = 0) {
+    constructor(list = [], perPage = 10) {
         this.list = list
         this.perPage = perPage
-        this.offset = offset
 
+        this._offset = 0
         this._page_number = 1
     }
 
@@ -82,10 +81,10 @@ class Pagination {
             page_number = parseInt(page_number, 10)
 
         if (page_number <= 0)
-            page_number = 1;
+            page_number = 1
 
         if (page_number > this.nbPages)
-            page_number = this.nbPages;
+            page_number = this.nbPages
 
         this._page_number = page_number
         this._offset = this._perPage * (this._page_number - 1)
@@ -100,7 +99,7 @@ class Pagination {
      * @returns {Object|Array}
      */
     chunkList(indexed_by_page = false) {
-        let chunk_list = null;
+        let chunk_list = null
 
         if (indexed_by_page) {
             chunk_list = {}
@@ -153,13 +152,6 @@ class Pagination {
     }
 
     /**
-     * @returns {Number}
-     */
-    get offset() {
-        return this._offset
-    }
-
-    /**
      * @param {Array} list
      * @returns {Pagination}
      */
@@ -183,22 +175,6 @@ class Pagination {
             perPage = parseInt(perPage, 10)
 
         this._perPage = Math.abs(perPage)
-        return this
-    }
-
-    /**
-     *
-     * @param {Number} offset
-     * @returns {Pagination}
-     */
-    set offset(offset) {
-        if (offset.constructor !== Number && offset.constructor !== String && isNaN(offset))
-            throw new Error('[Err] Pagination.offset property setter - offset argument must be a number')
-
-        if (offset.constructor === String)
-            offset = parseInt(offset, 10)
-
-        this._offset = Math.abs(offset)
         return this
     }
 
