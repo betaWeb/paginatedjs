@@ -1,7 +1,12 @@
 # PaginateJS
 A simple JS class to paginate arrays
+
 <br><br>
-#### Basic examples
+
+### Getting started
+
+---
+
 ```JS
 let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 let perPage = 3
@@ -44,6 +49,11 @@ page = pagination.getPaginated()
 // gives you [[1,2,3], [4,5,6], [7,8,9], [10,11,12], [13]]
 let chunked_list = pagination.chunkList()
 ```
+<br><br>
+
+### Usage
+
+---
 
 #### Properties
 
@@ -52,20 +62,27 @@ Get the current page number
 {Number} pagination.pageNumber
 ```
 
+<br>
+
 Get the number of pages
 ```JS
 {Number} pagination.nbPages
 ```
+
+<br>
 
 Get the list
 ```JS
 {Array} pagination.list
 ```
 
+<br>
+
 Get the number of entries per page
 ```JS
 {Number} pagination.perPage
 ```
+<br><br>
 
 #### Methods
 
@@ -74,45 +91,63 @@ Get list length
 {Number} pagination.count()
 ```
 
+<br>
+
 Returns true if pagination not ended, false otherwise
 ```JS
 {Boolean} pagination.hasMore()
 ```
+
+<br>
 
 Set pagination to the previous page
 ```JS
 {Pagination} pagination.prevPage()
 ```
 
+<br>
+
 Set pagination to the next page
 ```JS
 {Pagination} pagination.nextPage()
 ```
+
+<br>
 
 Set pagination to the first page
 ```JS
 {Pagination} pagination.firstPage()
 ```
 
+<br>
+
 Set pagination to the last page
 ```JS
 {Pagination} pagination.lastPage()
 ```
+
+<br>
 
 Returns list chunk compared to pagination position
 ```JS
 {Array} pagination.getPaginated()
 ```
 
+<br>
+
 Set pagination to the page number passed as argument
 ```JS
 {Pagination} pagination.goToPage(<page_number | Number>)
 ```
 
+<br>
+
 Reset pagination
 ```JS
 {Pagination} pagination.reset()
 ```
+
+<br>
 
 Returns a chunked array or page indexed object of the list
 ```JS
