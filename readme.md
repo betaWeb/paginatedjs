@@ -163,7 +163,10 @@ Reset pagination
 
 Returns a chunked array or page indexed object of the list
 ```JS
-{Array|Object} Pagination.chunkList(<(optional) indexed_by_page | Boolean>, <(optional) to_array | Boolean>)
+{Array|Object} Pagination.chunkList(
+    <(optional) indexed_by_page | Boolean>, 
+    <(optional) to_array | Boolean>
+)
 ```
 
 <br><br>
