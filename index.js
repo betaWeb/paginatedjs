@@ -1,1 +1,2 @@
-module.exports = require('src/Pagination')
+const Pagination = require('./src/Pagination')
+module.exports = { Pagination }
