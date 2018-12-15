@@ -5,15 +5,13 @@ A simple JS class to paginate arrays.
 
 ## Getting started
 
----
-
 ### Installation
 
 You just have to download the minify js file `paginate-js.min.js`, and import it into your HTML :
 ```HTML
 <script src="/path/to/paginate-js.min.js"></script>
 ``` 
-That'is it ! :)
+That's it ! :)
 
 ### Usage
 
