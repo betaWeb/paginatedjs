@@ -1,11 +1,21 @@
 # PaginateJS
-A simple JS class to paginate arrays
+A simple JS class to paginate arrays.
 
 <br><br>
 
 ## Getting started
 
 ---
+
+### Installation
+
+You just have to download the minify js file `paginate-js.min.js`, and import it into your HTML :
+```HTML
+<script src="/path/to/paginate-js.min.js"></script>
+``` 
+That'is it ! :)
+
+### Usage
 
 ```JS
 let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -54,9 +64,9 @@ let chunked_list = pagination.chunkList(true)
 ```
 <br><br>
 
-## Usage
-
 ---
+
+## API
 
 ### Pagination class
 
