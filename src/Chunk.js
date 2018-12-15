@@ -24,8 +24,8 @@ class Chunk {
         return this._chunk[this._chunk.length - 1]
     }
 
-    nth(index) {
-        return this._chunk[index] || null
+    nth(n) {
+        return this._chunk[n - 1] || null
     }
 
     contains(value) {

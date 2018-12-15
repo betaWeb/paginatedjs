@@ -23,7 +23,7 @@ test('Test last element', () => {
 });
 
 test('Test nth element', () => {
-    expect(this.chunk.nth(9)).toEqual(10)
+    expect(this.chunk.nth(10)).toEqual(10)
 });
 
 test('Test contains value', () => {

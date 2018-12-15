@@ -34,7 +34,7 @@ test('Test get prev page', () => {
         .prevPage()
 
     expect(this.pagination.getPaginated(true)).toEqual(expect.arrayContaining([7, 8, 9]))
-    expect(this.pagination.getPaginated().nth(1)).toEqual(8)
+    expect(this.pagination.getPaginated().nth(2)).toEqual(8)
 });
 
 test('Test get next page', () => {
@@ -43,7 +43,7 @@ test('Test get next page', () => {
         .nextPage()
 
     expect(this.pagination.getPaginated(true)).toEqual(expect.arrayContaining([10, 11, 12]))
-    expect(this.pagination.getPaginated().nth(3)).toEqual(null)
+    expect(this.pagination.getPaginated().nth(4)).toEqual(null)
 });
 
 test('Test get page number from current position', () => {
