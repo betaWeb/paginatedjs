@@ -205,38 +205,42 @@ Get count length
 
 <br>
 
+Get the first element
 ```JS
 {Mixed} Chunk.first()
 ```
 
 <br>
 
+Get the last element
 ```JS
 {Mixed} Chunk.last()
 ```
 
 <br>
 
+Get nth element (begins to 1)
 ```JS
-{Mixed} Chunk.nth(<index | Number>)
+{Mixed} Chunk.nth(<n | Number>)
 ```
 
 <br>
 
+Returns true if list contains value passed as argument, false otherwise
 ```JS
 {Boolean} Chunk.contains(<value | mixed>)
 ```
 
 <br>
 
-Returns chunk array
+Returns chunked list as an array
 ```JS
 {Array} Chunk.toArray()
 ```
 
 <br>
 
-Returns pagination instance of the chunk
+Paginate the chunked list
 ```JS
 {Pagination} Chunk.paginate(<perPage | Number>)
 ```
