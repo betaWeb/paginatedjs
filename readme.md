@@ -257,6 +257,14 @@ Returns true if list contains value passed as argument, false otherwise
 
 <br>
 
+Get chunked list only with keys passed as arguments
+/!\ Works only with array of objects
+```javascript
+{Chunk} Chunk.only(<args | Array>)
+```
+
+<br>
+
 Returns chunked list as an array
 ```javascript
 {Array} Chunk.toArray()

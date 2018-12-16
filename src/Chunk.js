@@ -45,6 +45,35 @@ class Chunk {
     }
 
     /**
+     * Get chunked list only with keys passed as arguments
+     * Works only with array of objects
+     *
+     * @returns {Chunk}
+     */
+    only(args = []) {
+        if (!Array.isArray(args) && args.constructor !== String)
+            throw new Error('[Err] Chunk.only - args argument must be a valid JavaScript Array or string')
+
+        if (args.constructor === String)
+            args = [args]
+
+        let list = []
+
+        if (args.length) {
+            this._chunk.forEach(item => {
+                let o = {}
+                args.forEach(v => {
+                    if (item[v])
+                        o[v] = item[v]
+                })
+                list.push(o)
+            })
+        }
+
+        return new Chunk(list)
+    }
+
+    /**
      * Returns chunked list as an array
      *
      * @returns {Array}

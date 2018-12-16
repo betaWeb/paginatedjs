@@ -41,4 +41,9 @@ test('Test paginate method', () => {
     expect(pagination.nbPages).toEqual(7)
 });
 
+test('Test only method', () => {
+    const chunk = new Chunk([{id: 1, name: 'a', age: 32}, {id: 2, name: 'b', age: 27}, {id: 3, name: 'c', age: 68}])
+    expect(chunk.only(['id', 'name']).toArray()).toEqual(expect.arrayContaining([{id: 1, name: 'a'}, {id: 2, name: 'b'}, {id: 3, name: 'c'}]))
+});
+
 afterAll(() => this.chunk = null);
