@@ -1,5 +1,5 @@
 {
-  "name": "paginatejs",
+  "name": "paginatedjs",
   "version": "1.1.0",
   "description": "A simple JS class to paginate arrays",
   "main": "index.js",

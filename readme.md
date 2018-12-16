@@ -1,4 +1,4 @@
-# PaginateJS
+# PaginatedJS
 
 [![Build Status](https://travis-ci.org/betaWeb/paginatejs.svg?branch=master)](https://travis-ci.org/betaWeb/paginatejs)
 
