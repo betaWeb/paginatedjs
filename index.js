@@ -1,2 +1,3 @@
 const Pagination = require('./src/Pagination')
-module.exports = { Pagination }
+const Chunk = require('./src/Chunk')
+module.exports = { Pagination, Chunk }

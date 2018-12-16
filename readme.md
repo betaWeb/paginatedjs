@@ -10,15 +10,36 @@ A simple JS class to paginate arrays.
 
 ### Installation
 
+#### Browser
 You just have to download the minify js file `paginate-js.min.js`, and import it into your HTML :
 ```HTML
 <script src="/path/to/paginate-js.min.js"></script>
 ``` 
-That's it ! :)
+
+#### NodeJS
+Install from NPM or Yarn
+```BASH
+npm i -S paginatedjs
+
+# OR
+
+yarn add paginatedjs
+```
+
+And import it into your NodeJS project
+```javascript
+const Pagination = require("paginatedjs").Pagination
+
+// OR
+
+import { Pagination } from 'paginatedjs'
+```
+
+And... that's it ! :)
 
 ### Usage
 
-```JS
+```javascript
 let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 let perPage = 3
 
@@ -77,28 +98,28 @@ Nomenclature : `{Return type} Class.property`
 <br>
 
 Get the current page number
-```JS
+```javascript
 {Number} Pagination.pageNumber
 ```
 
 <br>
 
 Get the number of pages
-```JS
+```javascript
 {Number} Pagination.nbPages
 ```
 
 <br>
 
 Get the list
-```JS
+```javascript
 {Array} Pagination.list
 ```
 
 <br>
 
 Get the number of entries per page
-```JS
+```javascript
 {Number} Pagination.perPage
 ```
 <br><br>
@@ -109,42 +130,42 @@ Nomenclature : `{Return type} Class.method(<(optional) arg | type>, [<(optional)
 <br>
 
 Get list length
-```JS
+```javascript
 {Number} Pagination.count()
 ```
 
 <br>
 
 Returns true if pagination not ended, false otherwise
-```JS
+```javascript
 {Boolean} Pagination.hasMore()
 ```
 
 <br>
 
 Set pagination to the previous page
-```JS
+```javascript
 {Pagination} Pagination.prevPage()
 ```
 
 <br>
 
 Set pagination to the next page
-```JS
+```javascript
 {Pagination} Pagination.nextPage()
 ```
 
 <br>
 
 Set pagination to the first page
-```JS
+```javascript
 {Pagination} Pagination.firstPage()
 ```
 
 <br>
 
 Set pagination to the last page
-```JS
+```javascript
 {Pagination} Pagination.lastPage()
 ```
 
@@ -152,28 +173,28 @@ Set pagination to the last page
 
 Returns chunked list compared to pagination position
 Returns Chunk class instance if to_array argument is false, array otherwise
-```JS
+```javascript
 {Chunk|Array} Pagination.getPaginated(<(optional) to_array | Boolean>)
 ```
 
 <br>
 
 Set pagination to the page number passed as argument
-```JS
+```javascript
 {Pagination} Pagination.goToPage(<page_number | Number>)
 ```
 
 <br>
 
 Reset pagination
-```JS
+```javascript
 {Pagination} Pagination.reset()
 ```
 
 <br>
 
 Returns a chunked array or page indexed object of the list
-```JS
+```javascript
 {Array|Object} Pagination.chunkList(
     <(optional) indexed_by_page | Boolean>, 
     <(optional) to_array | Boolean>
@@ -190,60 +211,60 @@ Nomenclature : `{Return type} Class.method(<arg | type>, [<arg | type>])`
 <br>
 
 Get count length
-```JS
+```javascript
 {Number} Chunk.count()
 ```
 
 <br>
 
-```JS
+```javascript
 {Boolean} Chunk.empty()
 ```
 
 <br>
 
-```JS
+```javascript
 {Boolean} Chunk.notEmpty()
 ```
 
 <br>
 
 Get the first element
-```JS
+```javascript
 {Mixed} Chunk.first()
 ```
 
 <br>
 
 Get the last element
-```JS
+```javascript
 {Mixed} Chunk.last()
 ```
 
 <br>
 
 Get nth element (begins to 1)
-```JS
+```javascript
 {Mixed} Chunk.nth(<n | Number>)
 ```
 
 <br>
 
 Returns true if list contains value passed as argument, false otherwise
-```JS
+```javascript
 {Boolean} Chunk.contains(<value | mixed>)
 ```
 
 <br>
 
 Returns chunked list as an array
-```JS
+```javascript
 {Array} Chunk.toArray()
 ```
 
 <br>
 
 Paginate the chunked list
-```JS
+```javascript
 {Pagination} Chunk.paginate(<perPage | Number>)
 ```
