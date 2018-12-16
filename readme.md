@@ -1,4 +1,7 @@
 # PaginateJS
+
+[![Build Status](https://travis-ci.org/betaWeb/paginatejs.svg?branch=master)](https://travis-ci.org/betaWeb/paginatejs)
+
 A simple JS class to paginate arrays.
 
 <br><br>
