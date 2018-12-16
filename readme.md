@@ -12,18 +12,18 @@ A simple JS class to paginate arrays.
 
 #### Browser
 You just have to download the minify js file `paginate-js.min.js`, and import it into your HTML :
-```HTML
+```html
 <script src="/path/to/paginate-js.min.js"></script>
 ``` 
 
 #### NodeJS
 Install from NPM or Yarn
 ```BASH
-npm i -S paginatedjs
+$ npm i -S paginatedjs
 
 # OR
 
-yarn add paginatedjs
+$ yarn add paginatedjs
 ```
 
 And import it into your NodeJS project
