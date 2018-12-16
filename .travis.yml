@@ -1,0 +1,25 @@
+branches:
+  only:
+    - master
+
+git:
+  depth: 10
+
+sudo: false
+
+cache:
+  directories:
+    - "node_modules"
+
+language: node_js
+
+node_js:
+  - "8.12.0"
+
+before_install:
+  - npm i -g npm@6.4.1
+
+before_script:
+  - npm install
+
+script: npm run test
