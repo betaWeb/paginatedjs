@@ -136,6 +136,13 @@ Get list length
 
 <br>
 
+Get last page chunk length
+```javascript
+{Number} Pagination.countLastPage()
+```
+
+<br>
+
 Returns true if pagination not ended, false otherwise
 ```javascript
 {Boolean} Pagination.hasMore()

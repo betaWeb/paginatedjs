@@ -79,6 +79,10 @@ test('Test get chunked list of array with keys', () => {
     expect(Object.keys(this.pagination.chunkList(true))).toEqual(expect.arrayContaining(['1','2','3','4','5']))
 });
 
+test('Test expect count last page to have 1 entry', () => {
+    expect(this.pagination.countLastPage()).toEqual(1)
+});
+
 test('Test get pagination with perPage larger than array length', () => {
     this.pagination.perPage = 20
     expect(this.pagination.getPaginated().count()).toEqual(this.pagination.count())

@@ -21,6 +21,10 @@ class Pagination {
         return this._list.length
     }
 
+    countLastPage() {
+        return this.count() - (this._perPage * (this.nbPages - 1))
+    }
+
     /**
      * @returns {boolean}
      */
